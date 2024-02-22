@@ -4,6 +4,7 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ErrorBoundary } from "react-error-boundary";
+import { BrowserRouter } from 'react-router-dom';
 
 function fallbackRender({ error, resetErrorBoundary }) {
   // Call resetErrorBoundary() to reset the error boundary and retry the render.
@@ -26,7 +27,9 @@ root.render(
 >
   
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 </ErrorBoundary>
 );

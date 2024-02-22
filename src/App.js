@@ -1,47 +1,36 @@
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
+import Footer from './Components/Footer';
 import * as React from "react";
 // import { createRoot } from "react-dom/client";
 import {
-  createBrowserRouter,
-  RouterProvider,
   Route,
-  Link,
+  Routes,
+  Outlet,
 } from "react-router-dom";
 
 
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <div>
-        <h1>Hello World</h1>
-        <Link to="about">About Us</Link>
-      </div>
-    ),
-  },
-  {
-    path: "about",
-    element: <div>About</div>,
-  },
-]);
 
-const BackGround =()=>{
+const Layout = ()=>{
   return(
-    <div className='p-absolute'>
-      <div className='bg-color'></div>
-    </div>
-  );
+    <>
+    <Navbar/>
+    <Outlet/>
+    <Footer/>
+    </>
+  )
 }
 function App() {
   return (
     <div className="App">
-      <BackGround />
-      <Navbar/>
-      <RouterProvider router={router} />
-      <Home/>
     
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+        </Route>
+        <Route path="*" element={<>page naot fount</>} />
+      </Routes>
         
 
     </div>

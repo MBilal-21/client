@@ -1,29 +1,30 @@
 import * as React from "react";
 import logo2 from '../images/Group 21420.svg'
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 
 const Navbar = () => {
    
   return (
-    <header  className='navbar'>
+    <>
+    <header  className='navbar d-flex'>
    
-    <Router>
 
       <div className='d-flex'>
         <img src={logo2} alt="Logo" />
         <h1 className="logo-text">Nurturing Wellness, Embracing All</h1>
       </div>
         <ul className='d-flex'>
-            <li><Link className="link" to={"home"}> Home</Link></li>
+            <li><Link className="link" to={"/"}> Home</Link></li>
             <li><Link className="link" to={"classes"}> Classes</Link></li>
-            <li><Link className="link" to={"pricing"}> pricing & Membership</Link></li>
+            <li><Link className="link" to={"pricing"}> Pricing & Membership</Link></li>
             <li><Link className="link" to={"about"}> About</Link></li>
-            <li><Link className="link" to={"join"}> Join</Link></li>
+            <li className="text-center"><Link className="link" to={"join"}> Join</Link></li>
         </ul>
-    </Router>
     
     </header>
+    <Outlet/>
+    </>
   )
 }
 
