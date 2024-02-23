@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import vector from "../images/Vector-Smart-Object-3-removebg.png";
 import { Link } from "react-router-dom";
 import Cart from "./cart";
@@ -40,18 +40,22 @@ const cart2Data = [
   {
     title: "Hatha Yoga",
     image: hathaYoga,
+    link: "/hatha-yoga"
   },
   {
     title: "Vinyasa Yoga",
     image: vinyasaYoga,
+    link: "vinyasa-yoga"
   },
   {
     title: "Yin Yoga",
     image: yinYoga,
+    link: "/yin-yoga"
   },
   {
     title: "Trauma Yoga",
     image: traumaYoga,
+    link: "/trauma-yoga"
   },
 ];
 const section2Content = {
@@ -167,7 +171,7 @@ const Home = () => {
           </h1>
           <div className="outer-div d-flex">
             {cart2Data.map((item, index) => {
-              return <HomeSection3Cart key={index} item={item} />;
+              return  <HomeSection3Cart key={index} item={item} />;
             })}
           </div>
         </section>

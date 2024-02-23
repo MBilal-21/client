@@ -217,12 +217,16 @@ section{
   height: 350px;
   border-radius: 125px;
   transition: all 1s;
+ 
+
   &:hover{
     margin-top: -80px;
     background-color: $primaryColor;
-    color: #ffffff;
     img{
       filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    }
+    h2{
+      color: #ffffff;
     }
   }
 }
