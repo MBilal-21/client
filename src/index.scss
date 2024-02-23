@@ -13,7 +13,7 @@ body {
   background: url(./images/Ellipse-18.png), url(./images/Ellipse-19.png);
   background-repeat: repeat-y;
   background-size: auto, cover;
-  height: 2000px;
+  width: 1420px;
 }
 .App {
   margin: 0px 60px;
@@ -32,13 +32,17 @@ span{
 button {
   font-size: 24px;
   font-weight: 600;
-  // width: 194px;
   padding: 10px  50px;
   margin-top: 15px;
   color: $textBlack;
   background-color: transparent;
   border: 1px solid $textBlack;
   border-radius: 50px;
+  &:hover{
+    background-color: $primaryColor;
+    color: white;
+    border-color: transparent;
+  }
 }
 .text-center{
   text-align: center;
@@ -49,12 +53,21 @@ section{
 .d-flex{
   display: flex;
 }
-
+.link{
+  text-decoration: none;
+  color: black;
+  &:active,
+  &:hover {
+    color: $textBlack;
+  }
+}
 // NavBar  Style
 .navbar {
   align-items: center;
   justify-content: space-between;
   height: 105px;
+  
+    
   div,
   ul {
     align-items: center;
@@ -69,25 +82,22 @@ section{
       font-size: 16px;
       padding: 10px;
       line-height: 19px;
-      .link {
-        text-decoration: none;
-        color: #4c4e4b;
-      }
+      
 
-      .link:active,
-      .link:hover {
-        color: $textBlack;
-      }
     }
     li:nth-child(5) {
-      width: 130px;
-      background: $primaryColor;
-      border-radius: 97px;
-      padding: 20px;
       .link {
+        border-radius: 97px;
+        border: 1px solid transparent;
+        padding: 10px 50px;
+        background: $primaryColor;
         font-weight: 800;
-        cursor: pointer;
         color: white;
+        &:hover{
+          color: black;
+          background-color: transparent;
+          border-color: $textBlack;
+        }
       }
     }
   }
@@ -207,13 +217,13 @@ section{
   height: 350px;
   border-radius: 125px;
   transition: all 1s;
-}
-.cart-2:hover{
-  margin-top: -80px;
-  background-color: $primaryColor;
-  color: #ffffff;
-  img{
- filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  &:hover{
+    margin-top: -80px;
+    background-color: $primaryColor;
+    color: #ffffff;
+    img{
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    }
   }
 }
 
@@ -234,7 +244,7 @@ section{
     .img1{
       width: 575.87px;
       height: 343.75px;
-      animation: move-up-left 10s ease-in-out;
+      animation: move-up-left 10s ease-in-out infinite;
     }
     .img2{
       width: 500px;
@@ -242,7 +252,7 @@ section{
       z-index: -1;
       position: absolute;
       right: 10px;
-      animation: move-down-right 10s ease-in-out;
+      animation: move-down-right 10s ease-in-out  infinite ;
     }
     
   }
@@ -253,16 +263,17 @@ section{
  
   .div-1{
     justify-content: space-between;
-}
-ul{
-  list-style: none;
-}
-.link,img{
-  text-decoration: none;
-  color: $textBlack;
-  margin-right:20px;
-  margin-bottom: 10px;
-}
+  }
+  ul{
+    list-style: none;
+  }
+
+  .link,img{
+    text-decoration: none;
+    color: $textBlack;
+    margin-right:20px;
+    margin-bottom: 10px;
+  }
 }
 // Animations----------------------------------------------------------
 @keyframes rotation {
@@ -289,31 +300,4 @@ ul{
   }
   100%{}
 }
-
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-} */
+/*--------------------------------------------------------------*/

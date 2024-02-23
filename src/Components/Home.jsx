@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import vector from "../images/Vector-Smart-Object-3-removebg.png";
 import { Link } from "react-router-dom";
 import Cart from "./cart";
@@ -55,30 +55,49 @@ const cart2Data = [
   },
 ];
 const section2Content = {
-  head: <h1> Our <span>Vision</span></h1>,
-  subText:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio ipsam sint fugiat natus, architecto obcaecati itaque omnis earerum quas delectus doloremque facere aliquid soluta cum temporeodit perspiciatis.",
+  head: (
+    <h1>
+      {" "}
+      Our <span>Vision</span>
+    </h1>
+  ),
+  subText:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio ipsam sint fugiat natus, architecto obcaecati itaque omnis earerum quas delectus doloremque facere aliquid soluta cum temporeodit perspiciatis.",
   btnText: "About us",
   img1: routineYoga1,
   img2: routineYoga2,
-}
+};
 const section5Content = {
-  head: <h1>Join our <span>gold-standard Teacher</span> Training <br />Online <span>this fall</span></h1>,
-  subText:"Lorem ipsum dolor sit amet consectetur. Mi nisl lorem vel velit. Nisi in rhoncus cras vulputate. Commodo a viverra quis nisi tempor etiam. A viverra vestibulum tellus tincidunt facilisis etiam laoreet. Lorem ipsum dolor sit amet consectetur. Mi nisl lorem.",
+  head: (
+    <h1>
+      Join our{" "}
+      <span>
+        gold-standard <br />
+        Teacher
+      </span>{" "}
+      Training <br />
+      Online <span>this fall</span>
+    </h1>
+  ),
+  subText:
+    "Lorem ipsum dolor sit amet consectetur. Mi nisl lorem vel velit. Nisi in rhoncus cras vulputate. Commodo a viverra quis nisi tempor etiam. A viverra vestibulum tellus tincidunt facilisis etiam laoreet. Lorem ipsum dolor sit amet consectetur. Mi nisl lorem.",
   btnText: "Reserve Your Seat",
   img1: section51,
   img2: section52,
-}
-const DirectionRowReverse = { flexDirection:"row-reverse" };
-const Section2 = ({content, dir}) => {
+};
+const DirectionRowReverse = { flexDirection: "row-reverse" };
+
+
+const Section2 = ({ content, dir, link }) => {
   return (
     <>
       <div className="section2 text-center d-flex" style={dir}>
         <div className="text-part">
           {content.head}
-          <p>
-            {content.subText}
-          </p>
-          <button>{content.btnText}</button>
+          <p>{content.subText}</p>
+          <Link to={link}>
+            <button>{content.btnText}</button>
+          </Link>
         </div>
         <div className="image-part">
           <img src={content.img1} alt="routineYoga1" className="img1" />
@@ -88,8 +107,11 @@ const Section2 = ({content, dir}) => {
     </>
   );
 };
+// ----------------------------------------------------------------------------------------------------------------
+
 
 const Home = () => {
+
   return (
     <>
       <div className="home-page">
@@ -105,7 +127,7 @@ const Home = () => {
               etiam. A viverra vestibulum tellus tincidunt facilisis etiam
               laoreet.
             </p>
-            <Link>
+            <Link to={"join"}>
               <button>Join Now</button>
             </Link>
           </div>
@@ -132,11 +154,16 @@ const Home = () => {
           </div>
         </section>
         <section>
-          <Section2 content={section2Content} dir={DirectionRowReverse}/>
+          <Section2
+            content={section2Content}
+            dir={DirectionRowReverse}
+            link={"about"}
+          />
         </section>
         <section className="section-3 text-center">
           <h1>
-          Find the <span>right class</span><br /> for <span>you.</span>
+            Find the <span>right class</span>
+            <br /> for <span>you.</span>
           </h1>
           <div className="outer-div d-flex">
             {cart2Data.map((item, index) => {
@@ -147,28 +174,50 @@ const Home = () => {
 
         <section className="section-4">
           <h1 className=" text-center">
-          There`s a <span>class for everyone,</span>
+            There`s a <span>class for everyone,</span>
             <br /> come and <span>find yours.</span>{" "}
           </h1>
           <div className="outer-div d-flex">
             <img src={eventGirl} alt="event girl" />
-            <div  className="inner-div-1">
-
+            <div className="inner-div-1">
               <h1>Hatha Yoga Class</h1>
               <div className="inner-div-2">
-              <div className="inner-div-3 d-flex">
-                <img src={calm} alt="calm-icon" />
-                <h2>Rachel Torres</h2>
+                <div className="inner-div-3 d-flex">
+                  <img src={calm} alt="calm-icon" />
+                  <h2>Rachel Torres</h2>
+                </div>
+                <p>
+                  Every Monday and Friday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
+                  <span className="e-time">10:00 AM</span>
+                </p>
               </div>
-                <p>Every Monday and Friday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span className="e-time">10:00 AM</span></p>
-              </div>
-                <button>All Events</button>  
+              <Link to={"all-events"}>
+                <button>All Events </button>{" "}
+              </Link>
             </div>
           </div>
         </section>
 
         <section className="section-5">
-            <Section2 content={section5Content}/>
+          <Section2 content={section5Content} link={"reserve-your-seat"} />
+        </section>
+        <section className="section-6">
+          <h1 className="text-center">
+            Practice with <span>confidence</span>
+          </h1>
+          <p className="text-center">
+            Connect and study with 500+ expert teachers across therapy, anatomy,
+            meditation <br /> and more. The world`s most diverse yoga site.
+          </p>
+          <div className="outer-div">
+            <div className="inner-div inner-div1">
+    
+
+
+            </div>
+            <div className="inner-div inner-div2"></div>
+          </div>
         </section>
       </div>
     </>

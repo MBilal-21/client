@@ -7,6 +7,7 @@ import {
   Route,
   Routes,
   Outlet,
+  Link,
 } from "react-router-dom";
 
 
@@ -27,9 +28,13 @@ function App() {
     
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home/>} />
+          <Route path='classes' element={<>classes page</>} />
+          <Route path='pricing-&-membership' element={<>pricing-&-membership page</>} />
+          <Route path='about' element={<>About page</>} />
+          <Route path='join' element={<>join page</>} />
+          <Route path="*" element={<>page not found move to <Link to={"/"}>Home</Link></>} />
         </Route>
-        <Route path="*" element={<>page naot fount</>} />
       </Routes>
         
 
